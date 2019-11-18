@@ -18,15 +18,16 @@ public class RegistryZK implements Runnable {
         this.zkIp = zkIp;
         this.easyIMServerPort = easyIMServerPort;
         this.httpPort = httpPort;
-        zkUtil = SpringBeanFactory.getBean(ZkUtil.class);
         appConfiguration = SpringBeanFactory.getBean(AppConfiguration.class);
+        zkUtil = SpringBeanFactory.getBean(ZkUtil.class);
+
     }
 
     @Override
     public void run() {
         zkUtil.createRootNode();
 
-        
+
         if (appConfiguration.isZkSwitch()) {
             String path = appConfiguration.getZkRoot() + "/ip-" + zkIp + ":" + easyIMServerPort + ":" + httpPort;
             zkUtil.createEphNode(path);
