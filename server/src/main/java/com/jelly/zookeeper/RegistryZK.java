@@ -26,6 +26,7 @@ public class RegistryZK implements Runnable {
     public void run() {
         zkUtil.createRootNode();
 
+        
         if (appConfiguration.isZkSwitch()) {
             String path = appConfiguration.getZkRoot() + "/ip-" + zkIp + ":" + easyIMServerPort + ":" + httpPort;
             zkUtil.createEphNode(path);
