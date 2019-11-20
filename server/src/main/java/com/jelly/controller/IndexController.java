@@ -15,6 +15,5 @@ public class IndexController {
 
     @Autowired
     private CounterService counterServicel;
-
-public
+    
 }
