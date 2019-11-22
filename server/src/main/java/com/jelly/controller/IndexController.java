@@ -13,6 +13,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 @RequestMapping("/")
@@ -26,7 +27,7 @@ public class IndexController {
 
     @ApiOperation("服务端发送消息")
     @RequestMapping(value = "sendMsg", method = RequestMethod.POST)
-    @RequestBody
+    @ResponseBody
     public BaseResponse<SendMsgResVO> sendMsg(@RequestBody SendMsgReqVO sendMsgReqVO) {
         BaseResponse<SendMsgResVO> res = new BaseResponse<>();
         easyIMServer.sendMsg(sendMsgReqVO);

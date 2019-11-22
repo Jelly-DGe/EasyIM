@@ -1,6 +1,5 @@
 package com.jelly.vo.req;
 
-import com.crossoverjie.cim.common.req.BaseRequest;
 import com.jelly.req.BaseRequest;
 import io.swagger.annotations.ApiModelProperty;
 
