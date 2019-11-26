@@ -8,6 +8,7 @@ import com.jelly.vo.req.SendMsgReqVO;
 import com.jelly.vo.res.SendMsgResVO;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.actuate.metrics.CounterService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
