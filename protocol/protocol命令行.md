@@ -1,0 +1,1 @@
+protoc .\*.proto --java_out=..\common\src\main\java\
