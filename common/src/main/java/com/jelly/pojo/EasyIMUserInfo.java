@@ -1,4 +1,4 @@
-package com.crossoverjie.cim.common.pojo;
+package com.jelly.pojo;
 
 /**
  * Function: 用户信息
@@ -7,11 +7,11 @@ package com.crossoverjie.cim.common.pojo;
  *         Date: 2018/12/24 02:33
  * @since JDK 1.8
  */
-public class CIMUserInfo {
+public class EasyIMUserInfo {
     private Long userId ;
     private String userName ;
 
-    public CIMUserInfo(Long userId, String userName) {
+    public EasyIMUserInfo(Long userId, String userName) {
         this.userId = userId;
         this.userName = userName;
     }
