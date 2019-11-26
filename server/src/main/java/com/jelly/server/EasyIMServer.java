@@ -1,10 +1,13 @@
 package com.jelly.server;
 
+import com.jelly.constant.Constants;
 import com.jelly.init.EasyIMServerInitializer;
+import com.jelly.protocol.EasyIMRequestProto;
 import com.jelly.util.SessionSocketHolder;
 import com.jelly.vo.req.SendMsgReqVO;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelFuture;
+import io.netty.channel.ChannelFutureListener;
 import io.netty.channel.ChannelOption;
 import io.netty.channel.EventLoopGroup;
 import io.netty.channel.nio.NioEventLoopGroup;
@@ -46,7 +49,7 @@ public class EasyIMServer {
 
         ChannelFuture channelFuture = bootstrap.bind().sync();
         if (channelFuture.isSuccess()) {
-            LOGGER.info("start easyIM server success");
+            LOGGER.info("启动 easyIM 服务 成功");
         }
     }
 
@@ -59,7 +62,7 @@ public class EasyIMServer {
     public void destory() {
         boss.shutdownGracefully().syncUninterruptibly();
         work.shutdownGracefully().syncUninterruptibly();
-        LOGGER.info("close easyIM server success");
+        LOGGER.info("关闭 easyIM 服务 成功");
     }
 
     public void sendMsg(SendMsgReqVO sendMsgReqVO) {
@@ -67,6 +70,13 @@ public class EasyIMServer {
         if (null == socketChannel) {
             throw new NullPointerException("Client [" + sendMsgReqVO.getUserId() + "] Offline！");
         }
+        EasyIMRequestProto.EasyIMReqProtocol easyIMReqProtocol = EasyIMRequestProto.EasyIMReqProtocol.newBuilder()
+                .setRequestId(sendMsgReqVO.getUserId())
+                .setReqMsg(sendMsgReqVO.getMsg())
+                .setType(Constants.CommandType.MSG)
+                .build();
 
+        ChannelFuture channelFuture =socketChannel.writeAndFlush(easyIMReqProtocol);
+        channelFuture.addListener((ChannelFutureListener) tempChannelFuture -> LOGGER.info("服务端手动发送 Google Protocol 成功={}", sendMsgReqVO.toString()));
     }
 }
