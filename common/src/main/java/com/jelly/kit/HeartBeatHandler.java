@@ -2,13 +2,6 @@ package com.jelly.kit;
 
 import io.netty.channel.ChannelHandlerContext;
 
-/**
- * Function:
- *
- * @author crossoverJie
- * Date: 2019-01-20 17:15
- * @since JDK 1.8
- */
 public interface HeartBeatHandler {
 
     /**
