@@ -40,6 +40,7 @@ public class EasyIMServerHandle extends SimpleChannelInboundHandler<EasyIMReques
             }
         }
     }
+    
 
     @Override
     protected void channelRead0(ChannelHandlerContext channelHandlerContext, EasyIMRequestProto.EasyIMReqProtocol easyIMReqProtocol) throws Exception {
