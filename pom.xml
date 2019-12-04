@@ -12,6 +12,7 @@
     <modules>
         <module>server</module>
         <module>common</module>
+        <module>route</module>
     </modules>
 
     <properties>

@@ -15,7 +15,7 @@ public class AppConfiguration {
     private int zkConnectTimeout;
     @Value("${app.server.port}")
     private int easyIMServerPort;
-    @Value("${app.clear.route.request.url")
+    @Value("${app.clear.route.request.url}")
     private String clearRouterUrl;
     @Value("${app.heartbeat.time}")
     private long heartBeatTime;
