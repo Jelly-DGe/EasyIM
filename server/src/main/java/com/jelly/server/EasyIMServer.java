@@ -29,7 +29,7 @@ public class EasyIMServer {
     private EventLoopGroup boss = new NioEventLoopGroup();
     private EventLoopGroup work = new NioEventLoopGroup();
 
-    @Value("easyIM.server.port")
+    @Value("${easyIM.server.port}")
     private int nettyPort;
 
     /**
