@@ -22,7 +22,30 @@ public class AppConfiguration {
     @Value("${route.way}")
     private String routeWay;
 
-    @Value("${app.route.way.consitenthash}")
+    @Value("${route.way.consitenthash}")
     private String consistentHashWay;
 
+    public String getZkRoot() {
+        return zkRoot;
+    }
+
+    public String getZkAddr() {
+        return zkAddr;
+    }
+
+    public int getPort() {
+        return port;
+    }
+
+    public int getZkConnectTimeout() {
+        return zkConnectTimeout;
+    }
+
+    public String getRouteWay() {
+        return routeWay;
+    }
+
+    public String getConsistentHashWay() {
+        return consistentHashWay;
+    }
 }
