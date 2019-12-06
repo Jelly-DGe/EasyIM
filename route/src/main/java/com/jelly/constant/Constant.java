@@ -1,4 +1,4 @@
-package com.crossoverjie.cim.route.constant;
+package com.jelly.constant;
 
 /**
  * Function:
