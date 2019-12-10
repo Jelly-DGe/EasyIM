@@ -1,7 +1,9 @@
 package com.jelly.controller;
 
+import com.jelly.cache.ServerCache;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -9,4 +11,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/")
 public class RouteController {
     private final static Logger LOGGER = LoggerFactory.getLogger(RouteController.class);
+
+    @Autowired
+    private ServerCache serverCache;
+
+    @Autowired
+    private AccountServer accountServer;
+
+    @Autowired
+    private UserInfoCacheService userInfoCacheService;
+
+    @Autowired
+    private RouteHandle routeHandle;
 }
