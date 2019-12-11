@@ -1,5 +1,6 @@
 package com.jelly.service.impl;
 
+import com.jelly.constant.Constant;
 import com.jelly.enums.StatusEnum;
 import com.jelly.service.AccountService;
 import com.jelly.service.UserInfoCacheService;
@@ -34,7 +35,18 @@ public class AccountServiceRedisImpl implements AccountService {
 
     @Override
     public RegisterInfoResVO register(RegisterInfoResVO info) throws Exception {
-        return null;
+        String key = Constant.ACCOUNT_PREFIX + info.getUserId();
+        String name = redisTemplate.opsForValue().get(info.getUserId());
+        if (null == name) {
+            //为了方便查询，冗余一份
+            redisTemplate.opsForValue().set(key, info.getUserName());
+            redisTemplate.opsForValue().set(info.getUserName(), key);
+        } else {
+            long userId = Long.parseLong(name.split(":")[1]);
+            info.setUserId(userId);
+            info.setUserName(info.getUserName());
+        }
+        return info;
     }
 
     @Override
