@@ -1,6 +1,8 @@
 package com.jelly.controller;
 
 import com.jelly.cache.ServerCache;
+import com.jelly.service.AccountService;
+import com.jelly.service.UserInfoCacheService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +18,7 @@ public class RouteController {
     private ServerCache serverCache;
 
     @Autowired
-    private AccountServer accountServer;
+    private AccountService accountService;
 
     @Autowired
     private UserInfoCacheService userInfoCacheService;
