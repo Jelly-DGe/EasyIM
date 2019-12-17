@@ -51,7 +51,20 @@ public class AccountServiceRedisImpl implements AccountService {
 
     @Override
     public StatusEnum login(LoginReqVO loginReqVO) throws Exception {
-        return null;
+        String key = Constant.ACCOUNT_PREFIX + loginReqVO.getUserId();
+        String username = redisTemplate.opsForValue().get(key);
+        if (null == username) {
+            return StatusEnum.ACCOUNT_NOT_MATCH;
+        }
+        if (!username.equals(loginReqVO.getUserName())) {
+            return StatusEnum.ACCOUNT_NOT_MATCH;
+        }
+
+        boolean status = userInfoCacheService.saveAndCheckUserLoginStatus(loginReqVO.getUserId());
+        if (status == false) {
+            return StatusEnum.REPEAT_LOGIN;
+        }
+        return StatusEnum.SUCCESS;
     }
 
     @Override
