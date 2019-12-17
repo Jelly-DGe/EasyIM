@@ -23,7 +23,7 @@ public class RouteController {
     @Autowired
     private UserInfoCacheService userInfoCacheService;
 
-    
+
     @Autowired
     private RouteHandle routeHandle;
 }
