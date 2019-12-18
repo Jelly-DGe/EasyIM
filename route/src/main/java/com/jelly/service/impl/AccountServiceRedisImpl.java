@@ -49,6 +49,7 @@ public class AccountServiceRedisImpl implements AccountService {
         return info;
     }
 
+    
     @Override
     public StatusEnum login(LoginReqVO loginReqVO) throws Exception {
         String key = Constant.ACCOUNT_PREFIX + loginReqVO.getUserId();
