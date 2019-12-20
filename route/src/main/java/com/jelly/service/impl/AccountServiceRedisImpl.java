@@ -71,7 +71,7 @@ public class AccountServiceRedisImpl implements AccountService {
     @Override
     public void saveRouteInfo(LoginReqVO loginReqVO, String msg) throws Exception {
 
-        
+
     }
 
     @Override
