@@ -63,4 +63,5 @@ public interface AccountService {
      * @throws Exception
      */
     void offLine(Long userId) throws Exception;
+    
 }
